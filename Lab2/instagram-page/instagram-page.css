@@ -1,54 +1,207 @@
+:root {
+    --bg-color: #ffffff;
+    --border-color: #ccd2db;
+    --link-color: #0095f6;
+    --button-color: #99c1f2;
+    --button-hover: #0064e1;
+    --text-main: #0a1317;
+    --text-secondary: #b8b9b8;
+    --input-bg: #fafafa; /* Slight off-white for inputs if needed, though image looks white */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 .main-container {
-  max-width: 1100px;         
-  margin: 48px auto;         
-  padding: 0 16px;
-  display: flex;
-  align-items: flex-start;     
-  gap: 24px;
-  flex-direction: row;
+    max-width: 1100px;         
+    margin: 48px auto;         
+    padding: 0 16px;
+    
+    display: flex;
+    align-items: flex-start;     
+    gap: 24px;
+    flex-direction: row;
 }
 
 .logo {
-  flex: 0 0 320px;
-  width: 320px;  
-  align-self: flex-start;         
-  background: rgba(255,0,0,0.06);
-  border-radius: 8px;
-  padding: 12px;
+    flex: 0 0 320px;
+    width: 320px;  
+    align-self: flex-start;         
+    background: rgba(255,0,0,0.06);
+    border-radius: 8px;
+    padding: 12px;
 }
 
 .left-side {
-  flex: 1 1 280px;           
-  background: rgba(0,128,0,0.06);
-  padding: 16px;
-  border-radius: 8px;
+    flex: 1 1 280px;
+    height: 934px;       
+    background: rgba(0,128,0,0.06);
+    padding: 16px;
+    border-radius: 8px;
 }
 
 
 .divider-vertical {
-  width: 1px;
-  background: rgba(0,0,0,0.12);
-  align-self: stretch;       
+    width: 3px;
+    background: #eef0f3;
+    align-self: stretch;       
 }
 
 
 .right-side {
-  flex: 2 1 320px;
-  background: rgba(0,0,255,0.05);
-  border-radius: 8px;
-  padding: 16px;
+    height: 934px;       
+    flex: 2 1 320px;
+    background: rgba(0,0,255,0.05);
+    border-radius: 8px;
+    padding: 16px;
 }
 
-/* футер */
-footer {
-  max-width: 1100px;
-  margin: 24px auto;
-  padding: 16px;
-  display: flex;
-  gap: 16px;
-  justify-content: space-between;
-  color: #666;
+.login-header {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+.login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+.input-group {
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 12px; /* Taller padding */
+            border: 1px solid var(--border-color);
+            border-radius: 4px; /* Slight radius */
+            background-color: #ffffff;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #a8a8a8;
+        }
+
+.btn-primary {
+            background-color: var(--button-color);
+            color: white;
+            border: none;
+            border-radius: 20px; /* Highly rounded as per screenshot */
+            padding: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--button-hover);
+        }
+
+        .forgot-password {
+            text-align: center;
+            font-size: 14px;
+            color: #00376b;
+            text-decoration: none;
+            margin-bottom: 30px;
+            display: block;
+            width: 100%;
+            max-width: 350px;
+        }
+.forgot-password:hover {
+    background-color: #f2f2f2;
 }
+
+        .fb-login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #385185;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 8px;
+            width: 100%;
+        }
+
+        .fb-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            fill: #385185;
+        }
+
+        .btn-create {
+            background-color: transparent;
+            color: var(--button-color);
+            border: 1px solid var(--button-color);
+            border-radius: 20px;
+            padding: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+
+footer {
+    /* max-width: 1100px;
+    margin: 24px auto;
+    padding: 16px;
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    color: #666; */
+    border-top: 1px solid #eef0f3; 
+    
+    width: 100%;
+    margin-top: 24px;   
+    padding: 24px 0;    
+    
+    color: #737373;  
+    font-size: 12px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+.footer-links a:hover {
+    text-decoration: underline;
+}
+.copyright {
+    margin-top: 10px;
+}
+        
 
 .gradient-text {
     color: #000;
@@ -65,8 +218,8 @@ footer {
 }
 
 .hero-image-placeholder {
-            width: 380px;
-            height: 480px;
+            width: 280px;
+            /* height: 480px; */
             background-color: #f0f0f0;
             border-radius: 20px;
             display: flex;
@@ -74,16 +227,7 @@ footer {
             justify-content: center;
             color: #aaa;
             position: relative;
-            /* Placeholder styling to mimic the collage */
-            background-image: linear-gradient(135deg, #eee 25%, transparent 25%), linear-gradient(225deg, #eee 25%, transparent 25%), linear-gradient(45deg, #eee 25%, transparent 25%), linear-gradient(315deg, #eee 25%, transparent 25%);
-            background-position:  10px 0, 10px 0, 0 0, 0 0;
-            background-size: 20px 20px;
-            background-repeat: repeat;
-        }
-
-.hero-image-placeholder::before {
-            content: "Add Pictures Here Later";
-            font-weight: bold;
+            overflow: hidden;
         }
 
 @media (max-width: 992px) {
