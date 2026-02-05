@@ -138,3 +138,53 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
+
+.task-list {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: var(--radius-sm);
+    gap: 10px;
+}
+
+.task-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+/* Style for the text when checked */
+.task-text.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+/* Delete button style */
+.btn-delete {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: var(--radius-xs);
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: var(--text-xs);
+}
+
+.btn-delete:hover {
+    background-color: #ff3333;
+}
+
+.hidden {
+    display: none !important;
+}
+
