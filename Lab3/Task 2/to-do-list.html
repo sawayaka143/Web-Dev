@@ -9,30 +9,30 @@
 <body>
 
     <header class="site-header">
-        <div class="settings">
-            <button class="btn-settings">
-                Settings
-            </button>
-        </div>
+        <button class="btn-settings">Settings</button>
+
         <nav class="main-nav">
             <form action="#" method="get">
-                <input type="text" id="search-box" name="query" placeholder="Search">
-                <button type="submit">Search</button>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search">
             </form>
-
         </nav>
     </header>
 
     <main class="content-wrapper">
         <article class="card">
             <div class="card-header">
-                <h2>Date: Day, Month</h2>
+                <h2 id="dateDisplay">Today</h2>
             </div>
+
             <div class="event-adder">
-                <h3>Add New Task</h3>
+                <div class="input-group">
+                    <input type="text" id="newTaskInput" placeholder="Write anything">
+                    <button onclick="addTask()" class="btn-add">Add</button>
+                </div>
             </div>
+
             <div class="card-body">
-                <ul class="task-list">
+                <ul class="task-list" id="taskList">
                     <li class="task-item">Task 1</li>
                     <li class="task-item">Task 2</li>
                     <li class="task-item">Task 3</li>
@@ -42,8 +42,12 @@
     </main>
 
     <footer class="site-footer">
-        <button class="action-btn">Action</button>
+        <button class="action-btn">
+            Simple To-Do App
+        </button>
     </footer>
+
+    <script src="js/to-do-list.js"></script>
 
 </body>
 </html>
