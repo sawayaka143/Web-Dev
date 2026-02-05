@@ -9,9 +9,17 @@
 <body>
 
     <header class="site-header">
-        <div class="logo">Logo</div>
+        <div class="settings">
+            <button class="btn-settings">
+                Settings
+            </button>
+        </div>
         <nav class="main-nav">
-            Search Bar
+            <form action="#" method="get">
+                <input type="text" id="search-box" name="query" placeholder="Search">
+                <button type="submit">Search</button>
+            </form>
+
         </nav>
     </header>
 
@@ -19,6 +27,9 @@
         <article class="card">
             <div class="card-header">
                 <h2>Date: Day, Month</h2>
+            </div>
+            <div class="event-adder">
+                <h3>Add New Task</h3>
             </div>
             <div class="card-body">
                 <ul class="task-list">
