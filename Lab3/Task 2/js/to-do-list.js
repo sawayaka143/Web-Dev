@@ -1,38 +1,49 @@
 const dateOptions = { weekday: 'short', month: 'short', day: 'numeric' };
 document.getElementById('dateDisplay').textContent = new Date().toLocaleDateString('en-US', dateOptions);
 
-function createTaskElement(text) {
+function saveTasks() {
+    const tasks = [];
+    document.querySelectorAll('.task-item').forEach(item => {
+        tasks.push({
+            text: item.querySelector('.task-text').textContent,
+            completed: item.querySelector('.task-text').classList.contains('completed')
+        });
+    });
+    localStorage.setItem('myTodoList', JSON.stringify(tasks));
+}
+
+function createTaskElement(text, isCompleted = false) {
     const li = document.createElement('li');
     li.className = 'task-item';
 
     const contentDiv = document.createElement('div');
     contentDiv.className = 'task-content';
 
-    // The Checkbox
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
+    checkbox.checked = isCompleted;
     checkbox.onclick = function() {
         span.classList.toggle('completed');
+        saveTasks();
     };
 
-    // The Text
     const span = document.createElement('span');
     span.className = 'task-text';
+    if (isCompleted) span.classList.add('completed');
     span.textContent = text;
-    
-    // Allow clicking the text to toggle the checkbox
     span.onclick = function() {
         checkbox.checked = !checkbox.checked;
         span.classList.toggle('completed');
+        saveTasks();
     };
     span.style.cursor = "pointer";
 
-    // The Delete Button
     const deleteBtn = document.createElement('button');
     deleteBtn.className = 'btn-delete';
     deleteBtn.textContent = 'Delete';
     deleteBtn.onclick = function() {
-        li.remove(); 
+        li.remove();
+        saveTasks();
     };
 
     contentDiv.appendChild(checkbox);
@@ -50,34 +61,43 @@ function addTask() {
     if (text) {
         const ul = document.getElementById('taskList');
         const newTask = createTaskElement(text);
-        
-        ul.prepend(newTask); 
+        ul.prepend(newTask);
+        saveTasks();
         input.value = '';
         input.focus();
     }
 }
 
+// Add task on Enter key
 document.getElementById('newTaskInput').addEventListener('keypress', function(event) {
     if (event.key === 'Enter') addTask();
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-    const examples = ['First item', 'Second item', 'Third item'];
     const ul = document.getElementById('taskList');
-    
-    [...examples].reverse().forEach(text => {
-        const task = createTaskElement(text);
-        ul.prepend(task);
-    });
+    const savedData = localStorage.getItem('myTodoList');
 
-    const firstCheckbox = ul.querySelector('li:first-child input[type="checkbox"]');
-    const firstText = ul.querySelector('li:first-child .task-text');
-    if(firstCheckbox) {
-        firstCheckbox.checked = true;
-        firstText.classList.add('completed');
+    if (savedData) {
+        // Load saved tasks from localStorage
+        const tasks = JSON.parse(savedData);
+        tasks.forEach(task => {
+            const taskElement = createTaskElement(task.text, task.completed);
+            ul.appendChild(taskElement);
+        });
+    } else {
+        // Show example tasks on first load
+        const examples = ['First item', 'Second item', 'Third item'];
+        [...examples].reverse().forEach(text => {
+            const task = createTaskElement(text);
+            ul.prepend(task);
+        });
+        saveTasks();
     }
+    
+    initTheme();
 });
 
+// Search tasks by input text
 const searchInput = document.getElementById('searchInput');
 searchInput.addEventListener('input', function(event) {
     const term = event.target.value.toLowerCase();
@@ -92,25 +112,24 @@ searchInput.addEventListener('input', function(event) {
     }); 
 });
 
-
-let darkmode = localStorage.getItem('darkmode');
 const toggleBtn = document.querySelector(".btn-theme-toggle");
 
-const enableDarkMode = () => {
-    document.body.classList.add("darkmode");
-    localStorage.setItem("darkmode", "active");
+// Load saved theme preference from localStorage
+function initTheme() {
+    let darkmode = localStorage.getItem('darkmode');
+    if (darkmode === "active") {
+        document.body.classList.add("darkmode");
+    }
 }
 
-const disableDarkMode = () => {
-    document.body.classList.remove("darkmode");
-    localStorage.setItem("darkmode", null);
-}
-
-if (darkmode === "active") {
-    enableDarkMode();
-}
-
+// Toggle dark mode and persist preference
 toggleBtn.addEventListener("click", function() {
-    darkmode = localStorage.getItem("darkmode");
-    darkmode !== "active" ? enableDarkMode() : disableDarkMode();
+    let darkmode = localStorage.getItem("darkmode");
+    if (darkmode !== "active") {
+        document.body.classList.add("darkmode");
+        localStorage.setItem("darkmode", "active");
+    } else {
+        document.body.classList.remove("darkmode");
+        localStorage.setItem("darkmode", null);
+    }
 });
