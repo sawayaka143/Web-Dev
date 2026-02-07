@@ -15,10 +15,10 @@
     --text-2xl: 1.5rem;
 
     --bg-color: #0f0f0f;
-    --card-bg: #141414; /* Added for depth */
+    --card-bg: #141414; 
     --border-color-1: #353535;
     --border-color-2: #1d1c1c;
-    --accent-color: #ffffff; /* White accent for buttons */
+    --accent-color: #ffffff;
     --text-crossed: #555555;
     --text-main: #ffffff;
     --danger-color: #ff4d4d;
@@ -138,8 +138,7 @@ input:focus-visible {
 .event-adder {
     display: flex;
     align-items: center;
-    /* background-color: var(--border-color-2); */
-    /* border: 1px solid var(--border-color-1); */
+    border: 1px solid var(--border-color-1);
     padding: 5px 5px 5px 15px;
     border-radius: var(--radius-2xl);
 }
@@ -161,10 +160,11 @@ input:focus-visible {
 }
 
 .btn-add {
-    background-color: var(--border-color-2);
+    background-color: var(--bg-color);
     color: var(--border-color-1);
     font-weight: 600;
     padding: 8px 20px;
+    border-color: var(--border-color-2);
     border-radius: var(--radius-sm);
     font-size: var(--text-xs);
     transition: opacity 0.2s;
@@ -240,7 +240,6 @@ input[type="checkbox"]::before {
     transition: 0.2s transform ease-in-out;
 }
 
-/* Show the tick when checked */
 input[type="checkbox"]:checked::before {
     transform: scale(1);
 }
