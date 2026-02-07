@@ -99,7 +99,7 @@ button {
     width: 45px;
     height: 45px;
     border: 1px solid var(--border-color-1);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-3xl);
     color: var(--text-crossed);
     transition: all 0.3s ease;
     flex-shrink: 0;
