@@ -1,7 +1,6 @@
 const dateOptions = { weekday: 'short', month: 'short', day: 'numeric' };
 document.getElementById('dateDisplay').textContent = new Date().toLocaleDateString('en-US', dateOptions);
 
-// 1. Core Function: Creates the HTML for a single task
 function createTaskElement(text) {
     const li = document.createElement('li');
     li.className = 'task-item';
@@ -44,7 +43,6 @@ function createTaskElement(text) {
     return li;
 }
 
-// 2. Event: User clicks "Add"
 function addTask() {
     const input = document.getElementById('newTaskInput');
     const text = input.value.trim();
@@ -53,29 +51,25 @@ function addTask() {
         const ul = document.getElementById('taskList');
         const newTask = createTaskElement(text);
         
-        ul.prepend(newTask); // Adds to top
+        ul.prepend(newTask); 
         input.value = '';
         input.focus();
     }
 }
 
-// 3. Event: Pressing "Enter" in the input box
 document.getElementById('newTaskInput').addEventListener('keypress', function(event) {
     if (event.key === 'Enter') addTask();
 });
 
-// 4. Initialization: Load the examples from your screenshot
 window.addEventListener('DOMContentLoaded', () => {
     const examples = ['First item', 'Second item', 'Third item'];
     const ul = document.getElementById('taskList');
     
-    // Add them in reverse order so "First item" ends up at the top
     [...examples].reverse().forEach(text => {
         const task = createTaskElement(text);
         ul.prepend(task);
     });
 
-    // Optional: Check the first one to match the screenshot
     const firstCheckbox = ul.querySelector('li:first-child input[type="checkbox"]');
     const firstText = ul.querySelector('li:first-child .task-text');
     if(firstCheckbox) {
@@ -84,7 +78,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 5. Search Functionality
 const searchInput = document.getElementById('searchInput');
 searchInput.addEventListener('input', function(event) {
     const term = event.target.value.toLowerCase();
@@ -98,3 +91,25 @@ searchInput.addEventListener('input', function(event) {
         }
     }); 
 });
+
+let darkmode = localStorage.getItem('darkmode');
+const toggleBtn = document.querySelector(".btn-theme-toggle");
+
+const enableDarkMode = () => {
+    document.body.classList.add("darkmode");
+    localStorage.setItem("darkmode", "active");
+}
+
+const disableDarkMode = () => {
+    document.body.classList.remove("darkmode");
+    localStorage.setItem("darkmode", null);
+}
+
+if (darkmode === "active") {
+    enableDarkMode();
+}
+
+themeToggle.addEventListener("click", function() {
+    darkmode = localStorage.getItem("darkmode");
+    darkmode !== "active" ? enableDarkMode() : disableDarkMode();
+})

@@ -25,6 +25,30 @@
     --success-color: #4caf50;
 }
 
+.lightmode {
+    --bg-color: #f0f0f0;
+    --card-bg: #ffffff; 
+    --border-color-1: #cccccc;
+    --border-color-2: #999999;
+    --accent-color: #000000;
+    --text-crossed: #888888;
+    --text-main: #000000;
+    --danger-color: #ff4d4d;
+    --success-color: #4caf50;
+}
+
+.darkmode {
+    --bg-color: #0f0f0f;
+    --card-bg: #141414; 
+    --border-color-1: #353535;
+    --border-color-2: #1d1c1c;
+    --accent-color: #ffffff;
+    --text-crossed: #555555;
+    --text-main: #ffffff;
+    --danger-color: #ff4d4d;
+    --success-color: #4caf50;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -64,7 +88,7 @@ button {
     padding: 0 20px;
 }
 
-.btn-settings {
+.btn-theme-toggle {
     position: absolute;
     left: 20px;
     font-size: var(--text-xs);
@@ -76,7 +100,26 @@ button {
     transition: 0.2s;
 }
 
-.btn-settings:hover {
+.btn-theme-toggle svg {
+    fill: var(--text-crossed);
+}
+
+.btn-theme-toggle svg:last-child {
+    display: none;
+}
+
+.darkmode .btn-theme-toggle svg:first-child {
+    display: none;
+}
+
+.darkmode .btn-theme-toggle svg:last-child {
+    width: 38px;
+    color: var(--text-crossed);
+    transition: 0.2s;
+    display: block;
+}
+
+.btn-theme-toggle:hover {
     border-color: var(--text-main);
     color: var(--text-main);
 }
