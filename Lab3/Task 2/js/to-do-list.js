@@ -92,6 +92,7 @@ searchInput.addEventListener('input', function(event) {
     }); 
 });
 
+
 let darkmode = localStorage.getItem('darkmode');
 const toggleBtn = document.querySelector(".btn-theme-toggle");
 
@@ -109,7 +110,7 @@ if (darkmode === "active") {
     enableDarkMode();
 }
 
-themeToggle.addEventListener("click", function() {
+toggleBtn.addEventListener("click", function() {
     darkmode = localStorage.getItem("darkmode");
     darkmode !== "active" ? enableDarkMode() : disableDarkMode();
-})
+});
