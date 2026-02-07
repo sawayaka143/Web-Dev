@@ -1,135 +1,100 @@
-// const dateOptions = { weekday: 'short', month: 'short', day: 'numeric' };
-// document.getElementById('dateDisplay').textContent = new Date().toLocaleDateString('en-US', dateOptions);
-
-// function addTask() {
-//     const input = document.getElementById('newTaskInput');
-//     const text = input.value.trim();
-
-//     if (text) {
-//         const ul = document.getElementById('taskList');
-//         const li = document.createElement('li');
-//         li.className = 'task-item';
-
-//         const contentDiv = document.createElement('div');
-//         contentDiv.className = 'task-content';
-
-//         const checkBox = document.createElement('input');
-//         checkBox.type = 'checkbox';
-//         checkBox.onclick = function() {
-//             span.classList.toggle('completed');
-//         };
-
-//         const span = document.createElement('span');
-//         span.className = 'task-text';
-//         span.textContent = text;
-
-//         const deleteBtn = document.createElement('button');
-//         deleteBtn.className = 'btn-delete';
-//         deleteBtn.textContent = 'Delete';
-//         deleteBtn.onclick = function() {
-//             li.parentNode.removeChild(li);
-//         };
-
-//         contentDiv.appendChild(checkBox);
-//         contentDiv.appendChild(span);
-        
-//         li.appendChild(contentDiv);
-//         li.appendChild(deleteBtn);
-
-//         ul.appendChild(li);
-//         input.value = ''; 
-//     }
-// }
-
-// document.getElementById('newTaskInput').addEventListener('keypress', function(event) {
-//     if (event.key === 'Enter') addTask();
-// });
-
-// const searchInput = document.getElementById('searchInput');
-// searchInput.addEventListener('input', function(event) {
-//     const term = event.target.value.toLowerCase();
-//     const tasks = document.querySelectorAll('.task-item');
-
-//     tasks.forEach(task => {
-//         const textSpan = task.querySelector('.task-text');
-//         const text = task.textContent.toLowerCase();
-
-//         if (text.includes(term)) {
-//             task.classList.remove('hidden');
-//         } else {
-//             task.classList.add('hidden');
-//         }
-//     }); 
-// });
-
 const dateOptions = { weekday: 'short', month: 'short', day: 'numeric' };
 document.getElementById('dateDisplay').textContent = new Date().toLocaleDateString('en-US', dateOptions);
 
+// 1. Core Function: Creates the HTML for a single task
+function createTaskElement(text) {
+    const li = document.createElement('li');
+    li.className = 'task-item';
+
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'task-content';
+
+    // The Checkbox
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.onclick = function() {
+        span.classList.toggle('completed');
+    };
+
+    // The Text
+    const span = document.createElement('span');
+    span.className = 'task-text';
+    span.textContent = text;
+    
+    // Allow clicking the text to toggle the checkbox
+    span.onclick = function() {
+        checkbox.checked = !checkbox.checked;
+        span.classList.toggle('completed');
+    };
+    span.style.cursor = "pointer";
+
+    // The Delete Button
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'btn-delete';
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.onclick = function() {
+        li.remove(); 
+    };
+
+    contentDiv.appendChild(checkbox);
+    contentDiv.appendChild(span);
+    li.appendChild(contentDiv);
+    li.appendChild(deleteBtn);
+
+    return li;
+}
+
+// 2. Event: User clicks "Add"
 function addTask() {
     const input = document.getElementById('newTaskInput');
     const text = input.value.trim();
 
     if (text) {
         const ul = document.getElementById('taskList');
-        const li = document.createElement('li');
-        li.className = 'task-item';
-
-        // 1. Create Container for Checkbox and Text
-        const contentDiv = document.createElement('div');
-        contentDiv.className = 'task-content';
-
-        // 2. Create Checkbox
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.onclick = function() {
-            span.classList.toggle('completed');
-        };
-
-        // 3. Create Text Span
-        const span = document.createElement('span');
-        span.className = 'task-text';
-        span.textContent = text;
-
-        // 4. Create Delete Button
-        const deleteBtn = document.createElement('button');
-        deleteBtn.className = 'btn-delete';
-        deleteBtn.textContent = 'Delete';
-        deleteBtn.onclick = function() {
-            li.remove(); // Removes the whole list item
-        };
-
-        // Assemble the parts
-        contentDiv.appendChild(checkbox);
-        contentDiv.appendChild(span);
+        const newTask = createTaskElement(text);
         
-        li.appendChild(contentDiv);
-        li.appendChild(deleteBtn);
-        
-        ul.appendChild(li);
+        ul.prepend(newTask); // Adds to top
         input.value = '';
+        input.focus();
     }
 }
 
-// Allow pressing "Enter" to add task
+// 3. Event: Pressing "Enter" in the input box
 document.getElementById('newTaskInput').addEventListener('keypress', function(event) {
     if (event.key === 'Enter') addTask();
 });
 
-// Search functionality
+// 4. Initialization: Load the examples from your screenshot
+window.addEventListener('DOMContentLoaded', () => {
+    const examples = ['First item', 'Second item', 'Third item'];
+    const ul = document.getElementById('taskList');
+    
+    // Add them in reverse order so "First item" ends up at the top
+    [...examples].reverse().forEach(text => {
+        const task = createTaskElement(text);
+        ul.prepend(task);
+    });
+
+    // Optional: Check the first one to match the screenshot
+    const firstCheckbox = ul.querySelector('li:first-child input[type="checkbox"]');
+    const firstText = ul.querySelector('li:first-child .task-text');
+    if(firstCheckbox) {
+        firstCheckbox.checked = true;
+        firstText.classList.add('completed');
+    }
+});
+
+// 5. Search Functionality
 const searchInput = document.getElementById('searchInput');
 searchInput.addEventListener('input', function(event) {
     const term = event.target.value.toLowerCase();
     const tasks = document.querySelectorAll('.task-item');
 
     tasks.forEach(task => {
-        // We look specifically at the text span now
         const textSpan = task.querySelector('.task-text');
-        const text = textSpan.textContent.toLowerCase();
-
-        if (text.includes(term)) {
-            task.classList.remove('hidden');
-        } else {
-            task.classList.add('hidden');
+        if (textSpan) {
+            const text = textSpan.textContent.toLowerCase();
+            task.classList.toggle('hidden', !text.includes(term));
         }
     }); 
 });

@@ -7,20 +7,22 @@
     --radius-2xl: 24px;
     --radius-3xl: 28px;
 
-    --text-xs: 0.75rem;   /* 12px */
-    --text-sm: 0.875rem;  /* 14px */
-    --text-md: 1rem;      /* 16px */
-    --text-lg: 1.125rem;  /* 18px */
-    --text-xl: 1.25rem;   /* 20px */
-    --text-2xl: 1.5rem;   /* 24px */
-    --text-3xl: 1.875rem; /* 30px */
-    --text-4xl: 2.25rem;  /* 36px */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-md: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
 
     --bg-color: #0f0f0f;
+    --card-bg: #141414; /* Added for depth */
     --border-color-1: #353535;
     --border-color-2: #1d1c1c;
-    --text-crossed: #949594;
+    --accent-color: #ffffff; /* White accent for buttons */
+    --text-crossed: #555555;
     --text-main: #ffffff;
+    --danger-color: #ff4d4d;
+    --success-color: #4caf50;
 }
 
 * {
@@ -41,173 +43,259 @@ body {
     align-items: center; 
 }
 
+/* --- Global Button Reset --- */
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: inherit;
+    font-family: inherit;
+}
+
 /* --- Header --- */
 .site-header {
     width: 100%;
-    height: 60px;
-    /* border: 3px solid black; */
+    height: 80px; /* Increased slightly for breathing room */
     display: flex;
     align-items: center; 
-    margin-bottom: 40px; 
+    justify-content: center;
+    margin-bottom: 20px; 
     position: relative;
+    padding: 0 20px;
 }
 
 .btn-settings {
+    position: absolute;
+    left: 20px;
     font-size: var(--text-xs);
     width: 40px;
     height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--text-xs);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-md);
+    color: var(--text-crossed);
+    transition: 0.2s;
+}
+
+.btn-settings:hover {
+    border-color: var(--text-main);
+    color: var(--text-main);
 }
 
 .main-nav {
-    font-size: var(--text-xs);
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 10px;
-
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
     height: 40px;
     border: 1px solid var(--border-color-1);
     border-radius: var(--radius-2xl);
     display: flex;
     align-items: center;
-    justify-content: left;
+    background-color: var(--bg-color);
 }
 
 .search-input {
     width: 100%;
-    height: 20px;
+    height: 100%;
     background-color: transparent;
-    border: none;;
+    border: none;
     color: var(--text-main);
-    font-size: var(--text-xs);
-
-    padding-left: 10px;
-    box-sizing: border-box;
+    font-size: var(--text-sm);
+    padding: 0 20px;
+    border-radius: var(--radius-2xl);
 }
 
 input:focus,
 input:focus-visible {
     outline: none;
-    box-shadow: none;
 }
-input[type="search"] {
-  -webkit-appearance: none;
-  appearance: none;
-}
-
 
 /* --- Central Content --- */
 .content-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
-    flex-grow: 1; 
+    padding: 0 20px;
 }
 
 .card {
-    width: 700px; 
-    height: 400px;
+    width: 100%;
+    max-width: 700px; 
+    background-color: var(--bg-color);
     border: 1px solid var(--border-color-1);
     border-radius: var(--radius-lg);
-    padding: 15px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 15px; 
+    gap: 20px; 
+    min-height: 500px;
 }
 
-.card-header {
-    height: 30px;
+.card-header h2 {
+    font-weight: 600;
+    font-size: var(--text-xl);
+}
+
+/* --- Add Event Section --- */
+.event-adder {
     display: flex;
     align-items: center;
-    justify-content: left;
-    padding: 0 15px;
-    border-radius: var(--radius-sm);
+    /* background-color: var(--border-color-2); */
+    /* border: 1px solid var(--border-color-1); */
+    padding: 5px 5px 5px 15px;
+    border-radius: var(--radius-2xl);
 }
 
-.event-adder {
-    font-size: var(--text-sm);
-    background-color: var(--border-color-2);
-    padding: 0 15px;
-    border: 1px solid var(--border-color-2);
-    border-radius: var(--radius-md);
+.input-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 #newTaskInput {
-    background-color: transparent
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: var(--text-sm);
+    padding: 10px 0;
 }
 
+.btn-add {
+    background-color: var(--border-color-2);
+    color: var(--border-color-1);
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    transition: opacity 0.2s;
+}
+
+.btn-add:hover {
+    opacity: 0.9;
+}
+
+/* --- Task List --- */
 .card-body {
     flex-grow: 1; 
-    border-radius: var(--radius-md);
-    padding: 0 30px;
-}
-
-/* --- Footer --- */
-.site-footer {
-    padding: 40px 0;
-}
-
-.action-btn {
-    width: 150px;
-    height: 50px;
-    border: 3px solid black;
-    border-radius: var(--radius-lg);
-    background: white;
-    font-weight: bold;
-    cursor: pointer;
 }
 
 .task-list {
     list-style: none;
-    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .task-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 10px;
-    margin-bottom: 8px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: var(--radius-sm);
-    gap: 10px;
+    padding: 12px 15px;
+    background-color: var(--bg-color); 
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-md);
+    transition: 0.2s;
+}
+
+.task-item:hover {
+    border-color: #555;
 }
 
 .task-content {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     flex-grow: 1;
 }
 
-/* Style for the text when checked */
-.task-text.completed {
-    text-decoration: line-through;
-    color: #888;
+/* Custom Checkbox Style */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-color-1); 
+    border-radius: var(--radius-xs);     
+    background-color: var(--bg-color); 
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    transition: 0.2s;
 }
 
-/* Delete button style */
+input[type="checkbox"]:checked {
+    background-color: var(--success-color); 
+    border-color: var(--success-color);
+}
+
+/* Create the checkmark tick */
+input[type="checkbox"]::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    box-shadow: inset 1em 1em white; /* The tick itself is white */
+    transform: scale(0);
+    transform-origin: center;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transition: 0.2s transform ease-in-out;
+}
+
+/* Show the tick when checked */
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+.task-text.completed {
+    text-decoration: line-through;
+    color: var(--text-crossed);
+    opacity: 0.8;
+}
+
+.task-text {
+    font-size: var(--text-sm);
+}
+
+.task-text.completed {
+    text-decoration: line-through;
+    color: var(--text-crossed);
+}
+
 .btn-delete {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    border-radius: var(--radius-xs);
-    padding: 5px 10px;
-    cursor: pointer;
+    color: var(--danger-color);
     font-size: var(--text-xs);
+    padding: 5px 10px;
+    border-radius: var(--radius-xs);
+    opacity: 0.7;
+    transition: 0.2s;
 }
 
 .btn-delete:hover {
-    background-color: #ff3333;
+    background-color: rgba(255, 77, 77, 0.1);
+    opacity: 1;
 }
 
 .hidden {
     display: none !important;
 }
 
+/* --- Footer --- */
+.site-footer {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.action-btn {
+    padding: 10px 30px;
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-lg);
+    background: var(--border-color-2);
+    color: var(--text-crossed);
+    font-size: var(--text-xs);
+    transition: 0.2s;
+}
+
+.action-btn:hover {
+    color: var(--text-main);
+    border-color: var(--text-main);
+}
