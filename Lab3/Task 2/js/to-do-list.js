@@ -68,7 +68,6 @@ function addTask() {
     }
 }
 
-// Add task on Enter key
 document.getElementById('newTaskInput').addEventListener('keypress', function(event) {
     if (event.key === 'Enter') addTask();
 });
@@ -78,14 +77,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const savedData = localStorage.getItem('myTodoList');
 
     if (savedData) {
-        // Load saved tasks from localStorage
         const tasks = JSON.parse(savedData);
         tasks.forEach(task => {
             const taskElement = createTaskElement(task.text, task.completed);
             ul.appendChild(taskElement);
         });
     } else {
-        // Show example tasks on first load
         const examples = ['First item', 'Second item', 'Third item'];
         [...examples].reverse().forEach(text => {
             const task = createTaskElement(text);
@@ -97,7 +94,6 @@ window.addEventListener('DOMContentLoaded', () => {
     initTheme();
 });
 
-// Search tasks by input text
 const searchInput = document.getElementById('searchInput');
 searchInput.addEventListener('input', function(event) {
     const term = event.target.value.toLowerCase();
@@ -114,7 +110,6 @@ searchInput.addEventListener('input', function(event) {
 
 const toggleBtn = document.querySelector(".btn-theme-toggle");
 
-// Load saved theme preference from localStorage
 function initTheme() {
     let darkmode = localStorage.getItem('darkmode');
     if (darkmode === "active") {
@@ -122,7 +117,6 @@ function initTheme() {
     }
 }
 
-// Toggle dark mode and persist preference
 toggleBtn.addEventListener("click", function() {
     let darkmode = localStorage.getItem("darkmode");
     if (darkmode !== "active") {
