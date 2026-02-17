@@ -24,10 +24,10 @@
     <div class="price">{{ product.price }} ₸</div>
 
     <div class="share-actions">
-      <button class="btn-share whatsapp" (click)="share(product.link, 'whatsapp')">
+      <button class="btn-share whatsapp" (click)="share(product.link, 'whatsapp', product.name)">
         Share on WhatsApp
       </button>
-      <button class="btn-share telegram" (click)="share(product.link, 'telegram')">
+      <button class="btn-share telegram" (click)="share(product.link, 'telegram', product.name)">
         Share on Telegram
       </button>
     </div>
