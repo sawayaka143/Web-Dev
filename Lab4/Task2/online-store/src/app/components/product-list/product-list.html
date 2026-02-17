@@ -1,0 +1,35 @@
+<div class="filter-controls">
+  <input type="text" placeholder="Search by name..." #searchInput (input)="filterByName(searchInput.value)">
+</div>
+
+<div class="product-grid">
+  <div class="product-card" *ngFor="let product of getFilteredProducts()">
+    <div class="image-container">
+      <img [src]="product.image" [alt]="product.name" class="main-image">
+    </div>
+
+    <a [routerLink]="['/products', product.id]" class="product-title" [title]="product.name">
+      {{ product.name }}
+    </a>
+
+    <p class="product-description">{{ product.description }}</p>
+
+    <div class="rating-row">
+      <span class="stars">
+        <span *ngFor="let s of [1,2,3,4,5]" [style.color]="s <= product.rating ? '#fbc02d' : '#ccc'">★</span>
+      </span>
+      <span>{{ product.rating }}</span>
+    </div>
+
+    <div class="price">{{ product.price }} ₸</div>
+
+    <div class="share-actions">
+      <button class="btn-share whatsapp" (click)="share(product.link, 'whatsapp')">
+        Share on WhatsApp
+      </button>
+      <button class="btn-share telegram" (click)="share(product.link, 'telegram')">
+        Share on Telegram
+      </button>
+    </div>
+  </div>
+</div>
