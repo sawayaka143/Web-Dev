@@ -83,11 +83,11 @@ window.addEventListener('DOMContentLoaded', () => {
             ul.appendChild(taskElement);
         });
     } else {
-        const examples = ['First item', 'Second item', 'Third item'];
-        [...examples].reverse().forEach(text => {
-            const task = createTaskElement(text);
-            ul.prepend(task);
-        });
+        // const examples = ['First item', 'Second item', 'Third item'];
+        // [...examples].reverse().forEach(text => {
+        //     const task = createTaskElement(text);
+        //     ul.prepend(task);
+        // });
         saveTasks();
     }
     

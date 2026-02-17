@@ -70,7 +70,6 @@ body {
     align-items: center; 
 }
 
-/* --- Global Button Reset --- */
 button {
     border: none;
     background: none;
@@ -79,7 +78,6 @@ button {
     font-family: inherit;
 }
 
-/* --- Header --- */
 .site-header {
     width: 100%;
     height: 80px; 
@@ -172,7 +170,6 @@ input:focus-visible {
     outline: none;
 }
 
-/* --- Central Content --- */
 .content-wrapper {
     width: 100%;
     display: flex;
@@ -198,7 +195,6 @@ input:focus-visible {
     font-size: var(--text-xl);
 }
 
-/* --- Add Event Section --- */
 .event-adder {
     display: flex;
     align-items: center;
@@ -240,7 +236,6 @@ input:focus-visible {
     color: var(--hover-bg1);
 }
 
-/* --- Task List --- */
 .card-body {
     transition: all 0.3s ease;
     flex-grow: 1; 
@@ -276,7 +271,6 @@ input:focus-visible {
     flex-grow: 1;
 }
 
-/* Custom Checkbox Style */
 input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
@@ -296,12 +290,11 @@ input[type="checkbox"]:checked {
     border-color: var(--success-color);
 }
 
-/* Create the checkmark tick */
 input[type="checkbox"]::before {
     content: "";
     width: 10px;
     height: 10px;
-    box-shadow: inset 1em 1em white; /* The tick itself is white */
+    box-shadow: inset 1em 1em white; 
     transform: scale(0);
     transform-origin: center;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
@@ -345,7 +338,6 @@ input[type="checkbox"]:checked::before {
     display: none !important;
 }
 
-/* --- Footer --- */
 .site-footer {
     padding: 40px 0;
     display: flex;
