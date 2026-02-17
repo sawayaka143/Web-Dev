@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, RouterModule, ProductList],
+  imports: [Header, RouterModule],
   template: `
     <app-header></app-header>
 
