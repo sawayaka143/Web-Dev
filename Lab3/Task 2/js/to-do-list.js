@@ -66,6 +66,7 @@ function addTask() {
         input.value = '';
         input.focus();
     }
+    tasks.forEach()
 }
 
 document.getElementById('newTaskInput').addEventListener('keypress', function(event) {
