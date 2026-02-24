@@ -9,11 +9,7 @@
   "projects": {
     "online-store": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
