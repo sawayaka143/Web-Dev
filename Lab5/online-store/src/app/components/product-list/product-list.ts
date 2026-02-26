@@ -1,11 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Product } from '../../models/product';
+import { ProductService } from '../../services/product-service';
+import { ProductItem } from '../product-item/product-item';
 
 @Component({
   selector: 'app-product-list',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, ProductItem],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })
 export class ProductList {
+  private productService = inject(ProductService);
 
+  products: Product[] = [];
+
+  constructor() {
+    this.products = this.productService.products;
+  }
 }

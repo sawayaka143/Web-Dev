@@ -1,0 +1,23 @@
+<header class="app-header">
+  <p>{{ title() }}</p>
+</header>
+
+<div class="layout-container">
+
+  <aside class="sidebar">
+    <p>Все категории</p>
+    <ul class="category-list">
+      @for (category of categories; track category.id) {
+        <li class="category-item">
+          <a routerLink="#">{{ category.name }}</a>
+        </li>
+      }
+    </ul>
+  </aside>
+
+  <main class="main-content">
+    <app-product-list></app-product-list>
+    <router-outlet></router-outlet>
+  </main>
+
+</div>

@@ -5,5 +5,6 @@ export interface Product {
   price: number;
   rating: number;
   image: string;
+  images: string[];
   link: string;
 }

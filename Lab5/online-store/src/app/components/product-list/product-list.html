@@ -1,1 +1,32 @@
-<p>product-list works!</p>
+<h2>Products</h2>
+
+<div class="product-grid">
+  @for (product of products; track product.id) {
+  <div class="product-card">
+
+    <div class="image-wrapper">
+      <img
+      [src]="product.image"
+      [alt]="product.name"
+      class="product-image">
+    </div>
+
+    <div class="product-info">
+      <a
+      [href]="product.link"
+      target="_blank"
+      class="product-title">
+      {{ product.name }}
+      </a>
+      <p class="product-description">{{ product.description }}</p>
+
+      <div class="product-meta">
+        <span class="product-rating">
+          <span class="star">★</span> {{ product.rating }} / 5
+        </span>
+      </div>
+    </div>
+
+  </div>
+  }
+</div>
