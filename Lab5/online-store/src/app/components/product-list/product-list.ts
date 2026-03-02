@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product-service';
@@ -11,6 +11,7 @@ import { ProductService } from '../../services/product-service';
   styleUrl: './product-list.css',
 })
 export class ProductList {
+  @Input()
   private productService = inject(ProductService);
 
   products: Product[] = [];

@@ -9,14 +9,13 @@
     <ul class="category-list">
       @for (category of categories; track category.id) {
         <li class="category-item">
-          <a routerLink="#">{{ category.name }}</a>
+          <a [routerLink]="" routerLinkActive="active">{{ category.name }}</a>
         </li>
       }
     </ul>
   </aside>
 
   <main class="main-content">
-    <app-product-list></app-product-list>
     <router-outlet></router-outlet>
   </main>
 

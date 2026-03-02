@@ -1,12 +1,12 @@
 import { Component, signal, inject } from '@angular/core';
-import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
+import { RouterOutlet, RouterLinkWithHref, RouterLinkActive } from '@angular/router';
 import { ProductList } from './components/product-list/product-list';
 import { Category } from './models/category';
 import { ProductService } from './services/product-service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ProductList, RouterLinkWithHref],
+  imports: [RouterOutlet, ProductList, RouterLinkWithHref, RouterLinkActive],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
