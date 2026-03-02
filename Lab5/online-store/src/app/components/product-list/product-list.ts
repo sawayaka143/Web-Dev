@@ -12,4 +12,8 @@ import { ProductItem } from '../product-item/product-item';
 })
 export class ProductList {
   @Input({ required: true }) products: Product[] = [];
+
+  onProductRemove(productId: number): void {
+    this.products = this.products.filter(product => product.id !== productId);
+  }
 }
