@@ -9,14 +9,18 @@
     <ul class="category-list">
       @for (category of categories; track category.id) {
         <li class="category-item">
-          <a [routerLink]="" routerLinkActive="active">{{ category.name }}</a>
+          <a
+            (click)="selectCategory(category.id)"
+            [class.active]="category.id === selectedCategoryId"
+            style="cursor: pointer;">
+            {{ category.name }}
+          </a>
         </li>
       }
     </ul>
   </aside>
 
   <main class="main-content">
-    <router-outlet></router-outlet>
+    <app-product-list [products]="filteredProducts"></app-product-list>
   </main>
-
 </div>

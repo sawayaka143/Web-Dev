@@ -1,27 +1,5 @@
 <div class="product-grid">
   @for (product of products; track product.id) {
-  <div class="product-card">
-
-    <div class="image-wrapper">
-      <img [src]="product.image" [alt]="product.name" class="product-image">
-    </div>
-
-    <div class="product-info">
-      <a [href]="product.link" target="_blank" class="product-title">
-        {{ product.name }}
-      </a>
-      <p class="product-description">{{ product.description }}</p>
-      <div class="rating-row">
-        <span class="stars">
-          @for (s of [1,2,3,4,5]; track s) {
-          <span [style.color]="s <= product.rating ? '#FF4431' : '#CDCDCD'">★</span>
-          }
-        </span>
-        <span> {{ product.rating }}</span>
-      </div>
-
-    </div>
-
-  </div>
+  <app-product-item [product]="product"></app-product-item>
   }
 </div>

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-product-item',
@@ -8,6 +9,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './product-item.css',
 })
 export class ProductItem {
-  @Input({ required: true }) product: any;
+  @Input({ required: true }) product!: Product;
 }
 

@@ -77,17 +77,21 @@
   text-decoration: none;
   color: #0089D1;
   font-weight: 500;
-  /* background-color: #f4f4f9;  */
-  /* border-radius: 8px; */
-  /* transition: all 0.2s ease; */
-  /* border-left: 4px solid transparent; */
+  cursor: pointer;
 }
 
 .category-item a:hover {
-  /* background-color: #1976d2; */
   color: black;
-  /* border-left: 4px solid #ffb300; */
-  /* transform: translateX(4px); */
+}
+
+.category-item a.active {
+  color: black;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.category-item a.active:hover {
+  color: black;
 }
 
 .main-content {
