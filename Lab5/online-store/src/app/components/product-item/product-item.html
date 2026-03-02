@@ -2,17 +2,11 @@
   <div class="product-card">
 
     <div class="image-wrapper">
-      <img
-      [src]="product.image"
-      [alt]="product.name"
-      class="product-image">
+      <img [src]="product.image" [alt]="product.name" class="product-image">
     </div>
 
     <div class="product-info">
-      <a
-      [href]="product.link"
-      target="_blank"
-      class="product-title">
+      <a [href]="product.link" target="_blank" class="product-title">
         {{ product.name }}
       </a>
       <p class="product-description">{{ product.description }}</p>
@@ -24,6 +18,9 @@
         </span>
         <span> {{ product.rating }}</span>
       </div>
+
+      <div class="price">{{ product.price }} ₸</div>
+
     </div>
   </div>
 </div>

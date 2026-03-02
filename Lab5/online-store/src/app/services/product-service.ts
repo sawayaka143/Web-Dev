@@ -134,78 +134,74 @@ export class ProductService {
     },
     {
       id: 7,
-      name: 'Ноутбук Apple MacBook Air 13 2020 13.3" / 8 Гб / SSD 256 Гб / macOS / MGN63RU/A',
+      name: 'Ноутбук Apple MacBook Air 13 2025 / 16 Гб / SSD 256 Гб / macOS / MW123',
       description:
-        'Маленький чип. Грандиозный прорыв. Первый чип, разработанный специально для Mac. Поразительно, но система на чипе Apple M1 вмещает 16 миллиардов транзис­торов и объединяет центральный и графи­ческий процессоры, систему Neural Engine, контроллеры ввода-вывода и множество других компонентов. Чип Apple M1 позволяет использовать на Mac уникальные технологии и обеспечивает невероятную производи­тельность в сочетании с лучшей в отрасли энергоэффективностью. Это не просто ещё один шаг для Mac — это принципиально новый уровень возможностей.',
+        'Представляем Apple MacBook Air 13 2025 — ультрабук, который сочетает в себе высокую производительность, изящный дизайн и долговечность. Этот ноутбук станет идеальным спутником для работы и развлечений.',
       rating: 5,
-
-      price: 467091,
+      price: 531494,
       image:
-        'https://resources.cdn-kaspi.kz/img/m/p/h06/h08/64213171568670.jpg?format=preview-large',
+        'https://resources.cdn-kaspi.kz/img/m/p/pab/pc3/35723922.jpg?format=preview-large',
       images: [
-        'https://resources.cdn-kaspi.kz/img/m/p/h2d/h82/83648592183326.png?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/h0a/h85/64213178351646.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/h3a/h0d/64213216755742.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/pab/pc3/35723922.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/p72/pc3/35723924.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/p3a/pc3/35723926.jpg?format=gallery-medium',
       ],
-      link: 'https://kaspi.kz/shop/p/apple-macbook-air-13-2020-13-3-8-gb-ssd-256-gb-macos-mgn63ru-a-101182724/?c=750000000',
-      likes: 592,
+      link: 'https://kaspi.kz/shop/p/apple-macbook-air-13-2025-16-gb-ssd-256-gb-macos-mw123-137582956/?c=750000000',
+      likes: 123,
       categoryId: 2,
     },
     {
       id: 8,
-      name: 'Ноутбук Apple MacBook Air 13 2020 13.3" / 8 Гб / SSD 256 Гб / macOS / MGN63RU/A',
+      name: 'Ноутбук Apple MacBook Pro 14 2024 14.2" / 24 Гб / SSD 512 Гб / macOS / MX2H3',
       description:
-        'Маленький чип. Грандиозный прорыв. Первый чип, разработанный специально для Mac. Поразительно, но система на чипе Apple M1 вмещает 16 миллиардов транзис­торов и объединяет центральный и графи­ческий процессоры, систему Neural Engine, контроллеры ввода-вывода и множество других компонентов. Чип Apple M1 позволяет использовать на Mac уникальные технологии и обеспечивает невероятную производи­тельность в сочетании с лучшей в отрасли энергоэффективностью. Это не просто ещё один шаг для Mac — это принципиально новый уровень возможностей.',
+        'New 2024 14 inch MacBook Pro 14-inch Li uid Retina XDRuid Retina XDR display2Standard displayApple M4 Pro chip with 12 core CPU, 16 core GPU, 16 core GPU, 16 core GPU, 16 core Neural Engine24GB unified memory512GB SSD storage70 USB-C Power AdaptThree Thunderbolt 5 ports, HDMI port 3 portBacklit Magic Keyboard with Touch Touch ID - US English',
       rating: 5,
-
-      price: 467091,
+      price: 1131902,
       image:
-        'https://resources.cdn-kaspi.kz/img/m/p/h06/h08/64213171568670.jpg?format=preview-large',
+        'https://resources.cdn-kaspi.kz/img/m/p/pb6/p44/15673150.png?format=preview-large',
       images: [
-        'https://resources.cdn-kaspi.kz/img/m/p/h2d/h82/83648592183326.png?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/h0a/h85/64213178351646.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/h3a/h0d/64213216755742.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/pb6/p44/15673150.png?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/p7e/p44/15673152.png?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/p9a/p44/15673151.png?format=gallery-medium',
       ],
-      link: 'https://kaspi.kz/shop/p/apple-macbook-air-13-2020-13-3-8-gb-ssd-256-gb-macos-mgn63ru-a-101182724/?c=750000000',
-      likes: 592,
+      link: 'https://kaspi.kz/shop/p/apple-macbook-pro-14-2024-14-2-24-gb-ssd-512-gb-macos-mx2h3-137220149/?c=750000000',
+      likes: 123,
       categoryId: 2,
     },
     {
       id: 9,
-      name: 'Ноутбук Apple MacBook Air 13 2020 13.3" / 8 Гб / SSD 256 Гб / macOS / MGN63RU/A',
+      name: 'Ноутбук Apple MacBook Air 13 2025 / 16 Гб / SSD 256 Гб / macOS / MW123RU/A',
       description:
         'Маленький чип. Грандиозный прорыв. Первый чип, разработанный специально для Mac. Поразительно, но система на чипе Apple M1 вмещает 16 миллиардов транзис­торов и объединяет центральный и графи­ческий процессоры, систему Neural Engine, контроллеры ввода-вывода и множество других компонентов. Чип Apple M1 позволяет использовать на Mac уникальные технологии и обеспечивает невероятную производи­тельность в сочетании с лучшей в отрасли энергоэффективностью. Это не просто ещё один шаг для Mac — это принципиально новый уровень возможностей.',
       rating: 5,
 
-      price: 467091,
+      price: 603000,
       image:
-        'https://resources.cdn-kaspi.kz/img/m/p/h06/h08/64213171568670.jpg?format=preview-large',
+        'https://resources.cdn-kaspi.kz/img/m/p/p52/p42/36846116.png?format=preview-large',
       images: [
-        'https://resources.cdn-kaspi.kz/img/m/p/h2d/h82/83648592183326.png?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/h0a/h85/64213178351646.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/h3a/h0d/64213216755742.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/p52/p42/36846116.png?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/p91/p3f/36846120.png?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/p04/p3f/36846125.png?format=gallery-medium',
       ],
-      link: 'https://kaspi.kz/shop/p/apple-macbook-air-13-2020-13-3-8-gb-ssd-256-gb-macos-mgn63ru-a-101182724/?c=750000000',
-      likes: 592,
+      link: 'https://kaspi.kz/shop/p/apple-macbook-air-13-2025-16-gb-ssd-256-gb-macos-mw123ru-a-138153472/?c=750000000',
+      likes: 77,
       categoryId: 2,
     },
     {
       id: 10,
-      name: 'Ноутбук Apple MacBook Air 13 2020 13.3" / 8 Гб / SSD 256 Гб / macOS / MGN63RU/A',
-      description:
-        'Маленький чип. Грандиозный прорыв. Первый чип, разработанный специально для Mac. Поразительно, но система на чипе Apple M1 вмещает 16 миллиардов транзис­торов и объединяет центральный и графи­ческий процессоры, систему Neural Engine, контроллеры ввода-вывода и множество других компонентов. Чип Apple M1 позволяет использовать на Mac уникальные технологии и обеспечивает невероятную производи­тельность в сочетании с лучшей в отрасли энергоэффективностью. Это не просто ещё один шаг для Mac — это принципиально новый уровень возможностей.',
+      name: 'Ноутбук Apple MacBook Pro 14 2024 14.2" / 24 Гб / SSD 512 Гб / macOS / MX2E3',
+      description: 'New 2024 14-inch MacBook Pro - Silver14-inch Li uid Retina XDR display2Standard displayApple M4 Pro chip with 12 core CPU, 16 core GPU, 16 core Neural Engine24GB unified memory512GB SSD storage70 USB-C Power AdaptThree Thunderbolt 5 port MagSafe 3 portBacklit Magic Keyboard with Touch Touch ID - US English',
       rating: 5,
-
-      price: 467091,
+      price: 1163688,
       image:
         'https://resources.cdn-kaspi.kz/img/m/p/h06/h08/64213171568670.jpg?format=preview-large',
       images: [
-        'https://resources.cdn-kaspi.kz/img/m/p/h2d/h82/83648592183326.png?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/h0a/h85/64213178351646.jpg?format=gallery-medium',
-        'https://resources.cdn-kaspi.kz/img/m/p/h3a/h0d/64213216755742.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/p80/pc6/29100257.png?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/pef/pa4/15675603.png?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/pd3/pa4/15675604.png?format=gallery-medium',
       ],
-      link: 'https://kaspi.kz/shop/p/apple-macbook-air-13-2020-13-3-8-gb-ssd-256-gb-macos-mgn63ru-a-101182724/?c=750000000',
-      likes: 592,
+      link: 'https://kaspi.kz/shop/p/apple-macbook-pro-14-2024-14-2-24-gb-ssd-512-gb-macos-mx2e3-137220943/?c=750000000',
+      likes: 37,
       categoryId: 2,
     },
     {
