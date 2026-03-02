@@ -13,9 +13,11 @@
       <p class="product-description">{{ product.description }}</p>
       <div class="rating-row">
         <span class="stars">
-          <span *ngFor="let s of [1,2,3,4,5]" [style.color]="s <= product.rating ? '#fbc02d' : '#ccc'">★</span>
+          @for (s of [1,2,3,4,5]; track s) {
+          <span [style.color]="s <= product.rating ? '#FF4431' : '#CDCDCD'">★</span>
+          }
         </span>
-        <span>{{ product.rating }}</span>
+        <span> {{ product.rating }}</span>
       </div>
 
     </div>
