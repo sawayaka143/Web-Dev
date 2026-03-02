@@ -1,27 +1,27 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../models/product';
+import { Product } from '../models/product.model';
 import { Category } from '../models/category';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductService {
+export class ProductsService {
   categories: Category[] = [
     {
       id: 1,
-      name: 'Смартфоны',
+      name: 'Смартфоны'
     },
     {
       id: 2,
-      name: 'Ультрабуки',
+      name: 'Планшеты'
     },
     {
       id: 3,
-      name: 'Планшеты',
+      name: 'Гитары'
     },
     {
       id: 4,
-      name: 'Гитары',
+      name: 'Ультрабуки'
     },
   ];
 
@@ -31,7 +31,7 @@ export class ProductService {
       name: 'Apple iPhone 17 Pro 256Gb оранжевый',
       description:
         'Apple iPhone 17 Pro 256Gb — это воплощение инноваций и стиля, сочетающее в себе непревзойденную производительность, потрясающую камеру и яркий OLED-дисплей.',
-      rating: 2,
+      rating: 5,
       price: 774648,
       image: 'https://resources.cdn-kaspi.kz/img/m/p/p18/p96/64168413.png?format=preview-large',
       images: [
@@ -40,6 +40,8 @@ export class ProductService {
         'https://resources.cdn-kaspi.kz/img/m/p/pfc/p95/64168414.png?format=gallery-medium',
       ],
       link: 'https://kaspi.kz/shop/p/apple-iphone-17-pro-256gb-oranzhevyi-145467625/?c=750000000',
+      likes: 10,
+      categoryId: 1,
     },
     {
       id: 2,
@@ -56,6 +58,8 @@ export class ProductService {
         'https://resources.cdn-kaspi.kz/img/m/p/pfc/p95/64168414.png?format=gallery-medium',
       ],
       link: 'https://kaspi.kz/shop/p/apple-iphone-15-128gb-chernyi-113137790/?c=750000000',
+      likes: 10,
+      categoryId: 1,
     },
     {
       id: 3,
@@ -72,6 +76,8 @@ export class ProductService {
         'https://resources.cdn-kaspi.kz/img/m/p/pfc/p95/64168414.png?format=gallery-medium',
       ],
       link: 'https://kaspi.kz/shop/p/kotex-prokladki-ultra-night-duo-14-sht-100931591/?c=750000000',
+      likes: 10,
+      categoryId: 1,
     },
     {
       id: 4,
@@ -87,6 +93,8 @@ export class ProductService {
         'https://resources.cdn-kaspi.kz/img/m/p/pfc/p95/64168414.png?format=gallery-medium',
       ],
       link: 'https://kaspi.kz/shop/p/apple-iphone-17-pro-256gb-temno-sinii-145438959/?c=750000000',
+      likes: 10,
+      categoryId: 1,
     },
     {
       id: 5,
@@ -102,6 +110,8 @@ export class ProductService {
         'https://resources.cdn-kaspi.kz/img/m/p/pfc/p95/64168414.png?format=gallery-medium',
       ],
       link: 'https://kaspi.kz/shop/p/samsung-galaxy-a07-6-gb-128-gb-chernyi-144817763/?c=750000000',
+      likes: 10,
+      categoryId: 1,
     },
   ];
 }

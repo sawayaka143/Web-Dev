@@ -20,11 +20,19 @@
       </a>
       <p class="product-description">{{ product.description }}</p>
 
-      <div class="product-meta">
+      <!-- <div class="product-meta">
         <span class="product-rating">
           <span class="star">★</span> {{ product.rating }} / 5
         </span>
-      </div>
+      </div> -->
+
+        <div class="rating-row">
+      <span class="stars">
+        <span *ngFor="let s of [1,2,3,4,5]" [style.color]="s <= product.rating ? '#fbc02d' : '#ccc'">★</span>
+      </span>
+      <span>{{ product.rating }}</span>
+    </div>
+
     </div>
 
   </div>
