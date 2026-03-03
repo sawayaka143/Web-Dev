@@ -9,7 +9,7 @@ import { Product } from './models/product';
   standalone: true,
   imports: [ProductList],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   protected readonly title = signal('Kaspi.kz');
@@ -20,10 +20,15 @@ export class App {
 
   get filteredProducts(): Product[] {
     return this.productService.products.filter(
-      (product) => product.categoryId === this.selectedCategoryId
+      (product) => product.categoryId === this.selectedCategoryId,
     );
   }
 
+  onProductRemove(productId: number): void {
+    this.productService.products = this.productService.products.filter(
+      (product) => product.id !== productId,
+    );
+  }
   selectCategory(id: number): void {
     if (this.selectedCategoryId === id) {
       return;

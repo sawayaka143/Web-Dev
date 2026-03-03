@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Product } from '../../models/product';
 import { ProductItem } from '../product-item/product-item';
@@ -12,8 +12,10 @@ import { ProductItem } from '../product-item/product-item';
 })
 export class ProductList {
   @Input({ required: true }) products: Product[] = [];
+  @Output() remove = new EventEmitter<number>
 
   onProductRemove(productId: number): void {
-    this.products = this.products.filter(product => product.id !== productId);
+    // this.products = this.products.filter(product => product.id !== productId);
+    this.remove.emit(productId);
   }
 }

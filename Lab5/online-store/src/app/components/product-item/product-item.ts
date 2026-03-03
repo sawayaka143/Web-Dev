@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../models/product';
 
 @Component({
@@ -14,10 +14,9 @@ export class ProductItem {
 
   isLiked: boolean = false;
   like(): void {
-    if (!this.isLiked) {
-      this.product.likes = 0;
-    } else if (this.isLiked){
-      alert(`You already have liked: ${this.product.name}!`)
+    if (this.isLiked) {
+      alert(`You already have liked: ${this.product.name}!`);
+      return;
     }
     this.product.likes += 1;
     this.isLiked = true;
@@ -26,7 +25,7 @@ export class ProductItem {
   onDelete(): void {
     const confirmDelete = confirm(`Are you sure you want to delete ${this.product.name}?`);
 
-    if(confirmDelete) {
+    if (confirmDelete) {
       this.remove.emit(this.product.id);
     }
   }

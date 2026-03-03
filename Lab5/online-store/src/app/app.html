@@ -21,6 +21,9 @@
   </aside>
 
   <main class="main-content">
-    <app-product-list [products]="filteredProducts"></app-product-list>
+    <app-product-list
+    [products]="filteredProducts"
+    (remove)="onProductRemove($event)">
+  </app-product-list>
   </main>
 </div>
