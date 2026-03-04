@@ -1,6 +1,8 @@
 <h2>Albums</h2>
 
-<p *ngIf="isLoading">Loading albums...</p>
+@if (isLoading) {
+  <p>Loading albums...</p>
+}
 
 <ul *ngIf="!isLoading">
   <li *ngFor="let album of albums">

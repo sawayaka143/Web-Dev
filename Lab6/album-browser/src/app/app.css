@@ -10,6 +10,10 @@ aside {
   display: flex;
   gap: 0.5rem;
   overflow-x: auto;
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 aside a {
@@ -36,7 +40,6 @@ main {
   margin: 0 auto;
 }
 
-/* Desktop Layout */
 @media (min-width: 768px) {
   :host {
     flex-direction: row;
@@ -45,6 +48,6 @@ main {
   aside {
     width: 250px;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
   }
 }

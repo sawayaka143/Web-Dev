@@ -128,3 +128,11 @@ button:hover {
   color: red;
   border-color: red;
 }
+
+.btn-ws {
+  border-color: rgb(61, 212, 61);
+}
+
+.btn-tg {
+  border-color: #0089d0;
+}

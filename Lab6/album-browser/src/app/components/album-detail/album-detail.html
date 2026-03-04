@@ -5,9 +5,9 @@
     <label>Title: </label>
     <input [(ngModel)]="album.title" />
   </div>
-  <button (click)="save()">Save</button>
-  <button routerLink="/albums">Back</button>
+  <button class='btn' (click)="save()">Save</button>
+  <button class='btn' routerLink="/albums">Back</button>
   <br><br>
   <a [routerLink]="['/albums', album.id, 'photos']">View Photos</a>
 </div>
-<p *ngIf="!album">Loading...</p>
+<!-- <p *ngIf="!album">Loading...</p> -->

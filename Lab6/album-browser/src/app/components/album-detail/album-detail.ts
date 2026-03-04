@@ -7,9 +7,10 @@ import { Album } from '../../models/album';
 
 @Component({
   selector: 'app-album-detail',
+  standalone: true,
   imports: [CommonModule, RouterLink, FormsModule],
   templateUrl: './album-detail.html',
-  styleUrl: './album-detail.css',
+  styleUrl: './album-detail.css'
 })
 export class AlbumDetail implements OnInit {
   album!: Album;
