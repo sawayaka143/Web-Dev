@@ -1,0 +1,10 @@
+<h2>Photos</h2>
+<button routerLink="..">Back to Album</button>
+
+<p *ngIf="isLoading">Loading photos...</p>
+
+<p *ngIf="!isLoading && photos.length === 0">No photos found in this album.</p>
+
+<div class="photo-grid" *ngIf="!isLoading && photos.length > 0">
+  <img *ngFor="let photo of photos" [src]="photo.thumbnailUrl" [alt]="photo.title" [title]="photo.title" />
+</div>

@@ -1,26 +1,50 @@
-main {
-  border: 1px solid red;
-}
-
-nav {
+:host {
   display: flex;
-  gap: 15px;
-  padding: 10px;
-  background: #515151;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-nav a {
-  color: #aaa;
+aside {
+  background: #2c3e50;
+  padding: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+}
+
+aside a {
+  color: #ecf0f1;
   text-decoration: none;
-  padding: 5px 15px;
-  border-radius: 8px;
-}
-nav a:hover {
-  background: #1c1c1c;
-  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
 }
 
-nav a.active {
-  background: #1c1c1c;
-  color: white;
+aside a:hover,
+aside a.active {
+  background: #34495e;
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Desktop Layout */
+@media (min-width: 768px) {
+  :host {
+    flex-direction: row;
+  }
+
+  aside {
+    width: 250px;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 }
