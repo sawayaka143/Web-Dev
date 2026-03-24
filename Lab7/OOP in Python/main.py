@@ -1,8 +1,8 @@
 from models import Dog, Cat
 
 def run_simulation():
-    buddy = Dog("Buddy", 3, "Golden Retriever")
-    mittens = Cat("Mittens", 5, indoor=True)
+    buddy = Dog("Theydolf Tinkler", 3, "German Shepherd")
+    mittens = Cat("Musya", 5, indoor=True)
 
     pets = [buddy, mittens]
 
@@ -17,7 +17,7 @@ def run_simulation():
         elif isinstance(pet, Cat):
             print(f"Action: {pet.purr()}")
         
-        print("-" * 30)
+        print("—" * 30)
 
 if __name__ == "__main__":
     run_simulation()

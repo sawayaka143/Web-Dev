@@ -8,14 +8,14 @@ class Animal:
         return "The animal makes a sound."
 
     def describe(self):
-        return f"{self.name} is a {self.age}-year-old {self.species}."
+        return f"{self.name} is a {self.age} year-old {self.species}."
 
     def __str__(self):
         return f"Animal Object: {self.name} ({self.species})"
 
 class Dog(Animal):
     def __init__(self, name, age, breed):
-        super().__init__(name, age, "Dog")
+        super().__init__(name, age, "a dawg")
         self.breed = breed
 
     def speak(self):
