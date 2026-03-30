@@ -1,0 +1,21 @@
+import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Product } from '../../models/product';
+import { ProductItem } from '../product-item/product-item';
+
+@Component({
+  selector: 'app-product-list',
+  standalone: true,
+  imports: [CommonModule, ProductItem],
+  templateUrl: './product-list.html',
+  styleUrl: './product-list.css',
+})
+export class ProductList {
+  @Input({ required: true }) products: Product[] = [];
+  @Output() remove = new EventEmitter<number>
+
+  onProductRemove(productId: number): void {
+    // this.products = this.products.filter(product => product.id !== productId);
+    this.remove.emit(productId);
+  }
+}
