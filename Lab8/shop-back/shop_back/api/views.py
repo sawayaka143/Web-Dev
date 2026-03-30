@@ -1,64 +1,20 @@
-from django.http import JsonResponse
-from .models import Product, Category
+from rest_framework import viewsets
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
-def product_list(request):
-    products = Product.objects.all()
-    products_json = [
-        {
-            'id': p.id,
-            'name': p.name,
-            'price': p.price,
-            'description': p.description,
-            'count': p.count,
-            'is_active': p.is_active,
-            'category': p.category.id if p.category else None
-        } for p in products
-    ]
-    return JsonResponse(products_json, safe=False)
+from .models import Category, Product
+from .serializers import CategorySerializer, ProductSerializer
 
-def product_detail(request, id):
-    try:
-        p = Product.objects.get(id=id)
-        product_json = {
-            'id': p.id,
-            'name': p.name,
-            'price': p.price,
-            'description': p.description,
-            'count': p.count,
-            'is_active': p.is_active,
-            'category': p.category.id if p.category else None
-        }
-        return JsonResponse(product_json)
-    except Product.DoesNotExist:
-        return JsonResponse({'error': 'Product not found'}, status=404)
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
-def category_list(request):
-    categories = Category.objects.all()
-    categories_json = [{'id': c.id, 'name': c.name} for c in categories]
-    return JsonResponse(categories_json, safe=False)
+    @action(detail=True, methods=["get"])
+    def products(self, request, pk=None):
+        products = Product.objects.filter(category_id=pk)
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
 
-def category_detail(request, id):
-    try:
-        c = Category.objects.get(id=id)
-        return JsonResponse({'id': c.id, 'name': c.name})
-    except Category.DoesNotExist:
-        return JsonResponse({'error': 'Category not found'}, status=404)
-
-def category_products(request, id):
-    try:
-        Category.objects.get(id=id)
-        products = Product.objects.filter(category_id=id)
-        products_json = [
-            {
-                'id': p.id,
-                'name': p.name,
-                'price': p.price,
-                'description': p.description,
-                'count': p.count,
-                'is_active': p.is_active,
-                'category': p.category.id if p.category else None
-            } for p in products
-        ]
-        return JsonResponse(products_json, safe=False)
-    except Category.DoesNotExist:
-        return JsonResponse({'error': 'Category not found'}, status=404)
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
