@@ -1,0 +1,29 @@
+<header class="app-header">
+  <p>{{ title() }}</p>
+</header>
+
+<div class="layout-container">
+
+  <aside class="sidebar">
+    <p>Все категории</p>
+    <ul class="category-list">
+      @for (category of categories; track category.id) {
+        <li class="category-item">
+          <a
+            (click)="selectCategory(category.id)"
+            [class.active]="category.id === selectedCategoryId"
+            style="cursor: pointer;">
+            {{ category.name }}
+          </a>
+        </li>
+      }
+    </ul>
+  </aside>
+
+  <main class="main-content">
+    <app-product-list
+    [products]="filteredProducts"
+    (remove)="onProductRemove($event)">
+  </app-product-list>
+  </main>
+</div>
